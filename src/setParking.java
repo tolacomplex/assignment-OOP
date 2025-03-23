@@ -1,3 +1,6 @@
 public abstract class setParking {
-    abstract double count(int time);
+    abstract double Car_counting(int time, double price);
+    abstract double Bike_counting(double price);
+
+
 }
