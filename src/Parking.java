@@ -26,8 +26,8 @@ public class Parking extends setParking {
             price = 5000 + (500 * 10);
         }  else if (time == 12) {
             price = 5000 + (500 * 11);
-        } else if (time > 12) {
-            price = 5000  + (500 * 12);
+        } else if (time > 12 && time <= 24) {
+            price = 5000  + (1000 * 12);
         }
         return price;
     }
@@ -35,5 +35,15 @@ public class Parking extends setParking {
     @Override
     double Bike_counting(double price) {
         return price;
+    }
+
+    @Override
+    double Car_parking(double Car_counting, double price_dollars) {
+        return Car_counting / price_dollars;
+    }
+
+    @Override
+    double Bike_parking(double Bike_counting, double price_dollars) {
+        return Bike_counting / price_dollars;
     }
 }

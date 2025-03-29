@@ -1,3 +1,4 @@
+import java.text.DecimalFormat;
 import java.util.Scanner;
 
 public class Main {
@@ -5,11 +6,16 @@ public class Main {
 //      Parking class inherit
         Parking obj_1 = new Parking();
         Scanner input = new Scanner(System.in);
+        DecimalFormat format_decimal = new DecimalFormat("0.00");
         int choice_1, choice_2, time, price;
 //        Vehicle parking system implement interface
         vehicle_parking_implement obj_2 = new vehicle_parking_implement();
-        String type;
-        int number;
+//        variable assignment value
+        String type, number_2;
+        int number_1;
+//        Exchange currency riel to dollars
+        double price_dollars = 4100;
+//
 //        Loop condition choice
         while(true) {
             System.out.println("\nWelcome to Parking System");
@@ -31,22 +37,24 @@ public class Main {
                         System.out.println("\nWelcome to Car parking application");
                         System.out.print("Car Model: ");
                         type = input.next();
-                        System.out.print("Number of slot: ");
-                        number = input.nextInt();
-                        System.out.print("Parking Price : ");
-                        price = input.nextInt();
+                        System.out.print("Parking Number: ");
+                        number_1 = input.nextInt();
+                        System.out.print("Number: ");
+                        number_2 = input.next();
+                        System.out.println("\n\t\tTicket");
+                        obj_2.parking(type, number_1, number_2);
                         break;
 //               Bike parking application system
                      case 2:
                          System.out.println("\nWelcome to Bike parking application");
                          System.out.print("Bike Model: ");
                          type = input.next();
-                         System.out.print("Number of slot: ");
-                         number = input.nextInt();
-                         System.out.print("Parking Price : ");
-                         price = input.nextInt();
-                         obj_1.Bike_counting(price);
-                         obj_2.parking(type, number);
+                         System.out.print("Parking Number: ");
+                         number_1 = input.nextInt();
+                         System.out.print("Number : ");
+                         number_2 = input.next();
+                         System.out.println("\n\t\tTicket");
+                         obj_2.parking(type, number_1, number_2);
                          break;
                     default:
 //              Wrong choice number
@@ -64,18 +72,24 @@ public class Main {
 //         Car exit application
                     case 1:
                         System.out.println("\nWelcome to Car parking application");
+                        System.out.print("Car Model: ");
+                        type = input.next();
+                        System.out.print("Parking Number: ");
+                        number_1 = input.nextInt();
+                        System.out.print("Number: ");
+                        number_2 = input.next();
                         System.out.print("Parking Price : ");
                         price = input.nextInt();
                         System.out.print("Parking Time : ");
                         time = input.nextInt();
-                        System.out.print("Car Model: ");
-                        type = input.next();
-                        System.out.print("Number of slot: ");
-                        number = input.nextInt();
+                        System.out.println("\n\t\tInvoice");
                         int result_1 = (int) obj_1.Car_counting(time, price);
-                        System.out.println("Time + " + time + " hours");
+                        double result_2 = obj_1.Car_parking(result_1, price_dollars);
+//          Exchange currency riel to dollars
+                        obj_2.parking(type, number_1, number_2);
+                        System.out.println("Length : " + time + " hours");
                         System.out.println("Total Price : " + result_1 + " riel");
-                        obj_2.parking(type, number);
+                        System.out.println("Total price : " + " $" + format_decimal.format(result_2));
                         break;
 //          Bike Exit application
                     case 2:
@@ -83,11 +97,17 @@ public class Main {
                         System.out.println("\nWelcome to Bike parking application");
                         System.out.print("Bike Model: ");
                         type = input.next();
-                        System.out.print("Number of slot: ");
-                        number = input.nextInt();
-                        int result_2= (int) obj_1.Bike_counting(price);
-                        System.out.println("Total Price : " + result_2 + " riel");
-                        obj_2.parking(type, number);
+                        System.out.print("Parking Number: ");
+                        number_1 = input.nextInt();
+                        System.out.print("Number: ");
+                        number_2 = input.next();
+                        System.out.println("\n\t\tInvoice");
+                        int result_3 = (int) obj_1.Bike_counting(price);
+                        double result_4 = obj_1.Car_parking(result_3, price_dollars);
+//          Exchange currency riel to dollars
+                        obj_2.parking(type, number_1, number_2);
+                        System.out.println("Total Price : " + result_3 + " riel");
+                        System.out.println("Total price : " +  " $" + format_decimal.format(result_4));
                         break;
 //          Wrong choice system
                     default:
@@ -98,7 +118,8 @@ public class Main {
                 System.out.println("You Exit Parking System Successfully");
                 break;
             }  else {
-                System.out.println("Invalid choice");
+                System.out.println("Invalid choice. Please try again");
+                System.out.println("You should be input value: ( 1 to 3 ) ");
             }
 
         }
