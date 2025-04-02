@@ -5,4 +5,5 @@ public class vehicle_parking_implement implements vehicle_parking{
         System.out.println("Slot Number : "+ number_1);
         System.out.println("number : "+ number_2);
     }
+
 }

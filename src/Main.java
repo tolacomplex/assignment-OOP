@@ -34,30 +34,43 @@ public class Main {
                 System.out.print("\nEnter your choice: ");
                 choice_2 = input.nextInt();
                 switch (choice_2) {
-                    case 1 -> {
-                        System.out.println("\nWelcome to Car parking application.");
-                        System.out.print("Car Model: ");
-                        type = input.next();
-                        System.out.print("Parking Number: ");
-                        number_1 = input.nextInt();
-                        System.out.print("Number: ");
-                        number_2 = input.next();
-                        System.out.println("\n\t\tTicket");
-                        obj_2.parking(type, number_1, number_2);
-                    }
-                    case 2 -> {
-                        System.out.println("\nWelcome to Bike parking application");
-                        System.out.print("Bike Model: ");
-                        type = input.next();
-                        System.out.print("Parking Number: ");
-                        number_1 = input.nextInt();
-                        System.out.print("Number : ");
-                        number_2 = input.next();
-                        System.out.println("\n\t\tTicket");
-                        obj_2.parking(type, number_1, number_2);
-                    }
-                    default -> //              Wrong choice number
-                        System.out.println("Invalid choice");
+                    case 1:
+                        try {
+                            System.out.println("\nWelcome to Car parking application.");
+                            System.out.print("Car Model: ");
+                            type = input.next();
+                            System.out.print("Parking Number: ");
+                            number_1 = input.nextInt();
+                            System.out.print("Number: ");
+                            number_2 = input.next();
+                            System.out.println("\n\tYour Ticket");
+                            obj_2.parking(type, number_1, number_2);
+                        } catch (Exception ex) {
+                            System.out.println("Invalid input. Please check your input and try again." + ex.getMessage());
+                        } finally {
+                            System.out.println("Successful........");
+                        }
+                        break;
+                    case 2:
+                        try {
+                            System.out.println("\nWelcome to Bike parking application");
+                            System.out.print("Bike Model: ");
+                            type = input.next();
+                            System.out.print("Parking Number: ");
+                            number_1 = input.nextInt();
+                            System.out.print("Number : ");
+                            number_2 = input.next();
+                            System.out.println("\n\tYour Ticket");
+                            obj_2.parking(type, number_1, number_2);
+                        } catch (Exception ex) {
+                            System.out.println("Invalid input. Please check your input and try again." + ex.getMessage());
+                        } finally {
+                            System.out.println("Successful........");
+                        }
+                        break;
+                    default: //              Wrong choice number
+                        System.out.println("Invalid choice. Please try again.");
+                        break;
                 }
 //               Car parking application system
 //               Bike parking application system
@@ -69,46 +82,59 @@ public class Main {
                 System.out.print("\nEnter your choice: ");
                 choice_2 = input.nextInt();
                 switch (choice_2) {
-                    case 1 -> {
-                        System.out.println("\nWelcome to Car parking application");
-                        System.out.print("Car Model: ");
-                        type = input.next();
-                        System.out.print("Parking Number: ");
-                        number_1 = input.nextInt();
-                        System.out.print("Number: ");
-                        number_2 = input.next();
-                        System.out.print("Parking Price : ");
-                        price = input.nextInt();
-                        System.out.print("Parking Time : ");
-                        time = input.nextInt();
-                        System.out.println("\n\t\tInvoice");
-                        int result_1 = (int) obj_1.Car_counting(time, price);
-                        double result_2 = obj_1.Car_parking(result_1, price_dollars);
+                    case 1:
+                        try {
+                            System.out.println("\nWelcome to Car parking application");
+                            System.out.print("Car Model: ");
+                            type = input.next();
+                            System.out.print("Parking Number: ");
+                            number_1 = input.nextInt();
+                            System.out.print("Number: ");
+                            number_2 = input.next();
+                            System.out.print("Parking Price : ");
+                            price = input.nextInt();
+                            System.out.print("Parking Time : ");
+                            time = input.nextInt();
+                            System.out.println("\n\tYour Invoice");
+                            int result_1 = (int) obj_1.Car_counting(time, price);
+                            double result_2 = obj_1.Car_parking(result_1, price_dollars);
 //          Exchange currency riel to dollars
-                        obj_2.parking(type, number_1, number_2);
-                        System.out.println("Length : " + time + " hours");
-                        System.out.println("Total Price : " + result_1 + " riel");
-                        System.out.println("Total price : " + " $" + format_decimal.format(result_2));
-                    }
-                    case 2 -> {
-                        price = 2000;
-                        System.out.println("\nWelcome to Bike parking application");
-                        System.out.print("Bike Model: ");
-                        type = input.next();
-                        System.out.print("Parking Number: ");
-                        number_1 = input.nextInt();
-                        System.out.print("Number: ");
-                        number_2 = input.next();
-                        System.out.println("\n\t\tInvoice");
-                        int result_3 = (int) obj_1.Bike_counting(price);
-                        double result_4 = obj_1.Car_parking(result_3, price_dollars);
+                            obj_2.parking(type, number_1, number_2);
+                            System.out.println("Length : " + time + " hours");
+                            System.out.println("Total Price : " + result_1 + " riel");
+                            System.out.println("Total price : " + " $" + format_decimal.format(result_2));
+                        } catch (Exception ex) {
+                            System.out.println("Invalid input. Please check your input and try again." + ex.getMessage());
+                        } finally {
+                            System.out.println("Please going to payment........");
+                        }
+                        break;
+                    case 2:
+                        try {
+                            price = 3000;
+                            System.out.println("\nWelcome to Bike parking application");
+                            System.out.print("Bike Model: ");
+                            type = input.next();
+                            System.out.print("Parking Number: ");
+                            number_1 = input.nextInt();
+                            System.out.print("Number: ");
+                            number_2 = input.next();
+                            System.out.println("\n\tYour Invoice");
+                            int result_3 = (int) obj_1.Bike_counting(price);
+                            double result_4 = obj_1.Car_parking(result_3, price_dollars);
 //          Exchange currency riel to dollars
-                        obj_2.parking(type, number_1, number_2);
-                        System.out.println("Total Price : " + result_3 + " riel");
-                        System.out.println("Total price : " + " $" + format_decimal.format(result_4));
-                    }
-                    default ->
-                        System.out.println("Invalid choice");
+                            obj_2.parking(type, number_1, number_2);
+                            System.out.println("Total Price : " + result_3 + " riel");
+                            System.out.println("Total price : " + " $" + format_decimal.format(result_4));
+                        } catch (Exception ex) {
+                            System.out.println("Invalid input. Please check your input and try again." + ex.getMessage());
+                        } finally {
+                            System.out.println("Please going to payment........");
+                        }
+                        break;
+                    default:
+                        System.out.println("Invalid choice. Please check your input and try again.");
+                        break;
                 }
 //         Car exit application
 //          Bike Exit application
