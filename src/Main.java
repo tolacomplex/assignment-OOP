@@ -28,14 +28,14 @@ public class Main {
             choice_1 = input.nextInt();
 //      Entry parking  of user
             if (choice_1 == 1) {
-                System.out.println("\nWelcome to entry parking");
+                System.out.println("\nWelcome to entry parking.");
                 System.out.println("1.Car Parking Entry");
                 System.out.println("2.Bike Parking Entry");
                 System.out.print("\nEnter your choice: ");
                 choice_2 = input.nextInt();
                 switch (choice_2) {
                     case 1 -> {
-                        System.out.println("\nWelcome to Car parking application");
+                        System.out.println("\nWelcome to Car parking application.");
                         System.out.print("Car Model: ");
                         type = input.next();
                         System.out.print("Parking Number: ");
